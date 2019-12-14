@@ -4,22 +4,10 @@ const getState = ({ getStore, setStore }) => {
 			apiContacts: [],
 			localContacts: [
 				{
-					name: "Paolo",
-					email: "pluco@gmail.com",
-					address: "123 Lincoln rd",
+					name: "Alejandro",
+					email: "Arayao@gmail.com",
+					address: "666 Fort LauderdaleS",
 					phone: "123456"
-				}
-			],
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
 				}
 			]
 		},
@@ -38,7 +26,7 @@ const getState = ({ getStore, setStore }) => {
 								phone: phone
 							})
 					  })
-					: fetch("https://3000-e7d09907-b998-4b3a-99be-2cbe0a8687b8.ws-us1.gitpod.io/person", {
+					: fetch("http://assets.breatheco.de/apis/fake/contact/agenda", {
 							method: "POST",
 							headers: { "Content-Type": "application/json" },
 							body: JSON.stringify({
@@ -49,7 +37,7 @@ const getState = ({ getStore, setStore }) => {
 							})
 					  })
 							.then(() => {
-								fetch("https://3000-e7d09907-b998-4b3a-99be-2cbe0a8687b8.ws-us1.gitpod.io/person")
+								fetch("http://assets.breatheco.de/apis/fake/contact/agenda")
 									.then(response => response.json())
 									.then(data => {
 										setStore({ apiContacts: data });
@@ -71,11 +59,12 @@ const getState = ({ getStore, setStore }) => {
 					})
 					.concat(store.localContacts.slice(index + 1));
 				console.log("Upd", updated_store);
+
 				setStore({ localContacts: updated_store });
 				saveLocation === "store"
 					? setStore({
 							localContacts: store.localContacts.splice(index, 1, {
-								...store[index],
+								store: [index],
 								name: name,
 								email: email,
 								address: address,
