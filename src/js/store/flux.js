@@ -26,7 +26,7 @@ const getState = ({ getStore, setStore }) => {
 								phone: phone
 							})
 					  })
-					: fetch("http://assets.breatheco.de/apis/fake/contact/agenda", {
+					: fetch("https://3000-e7d09907-b998-4b3a-99be-2cbe0a8687b8.ws-us1.gitpod.io/person", {
 							method: "POST",
 							headers: { "Content-Type": "application/json" },
 							body: JSON.stringify({
@@ -37,7 +37,7 @@ const getState = ({ getStore, setStore }) => {
 							})
 					  })
 							.then(() => {
-								fetch("http://assets.breatheco.de/apis/fake/contact/agenda")
+								fetch("https://3000-e7d09907-b998-4b3a-99be-2cbe0a8687b8.ws-us1.gitpod.io/person")
 									.then(response => response.json())
 									.then(data => {
 										setStore({ apiContacts: data });

@@ -27,7 +27,7 @@ const injectContext = PassedComponent => {
 			 * state.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-			let url = "https://assets.breatheco.de/apis/fake/contact/agenda/downtown_xii";
+			let url = "https://3000-e7d09907-b998-4b3a-99be-2cbe0a8687b8.ws-us1.gitpod.io/person";
 			let promis = fetch(url).then(response => response.json());
 			promis.then(results => {
 				let { store, actions } = state;
